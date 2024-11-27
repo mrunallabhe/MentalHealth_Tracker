@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Additional custom styles can go here */
+.App {
+  font-family: Arial, sans-serif; /* Example custom font-family */
+}
+
+.navbar {
+  background-color: #1E3A8A; /* Example custom navbar color */
+}
+
+.content {
+  background-color: #F3F4F6; /* Light gray background for content area */
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;  /* Prevent horizontal scrollbars */
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;  /* Make sure all elements inherit the box-sizing */
+}

@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "name": "Quiz",
+      "title": "Quiz",
+      "price": 0,
+      "category": "Free",
+      "image": "https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/ba/32/82/ba32822a-56b6-3afc-cc94-5c77d9e713fe/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Mood Tracker",
+      "title": "Mood Tracker",
+      "price": 0,
+      "category": "Free",
+      "image": "https://media.istockphoto.com/id/1337040779/vector/vector-illustration-daily-activities-routine.jpg?s=612x612&w=0&k=20&c=rVCZhWjQMiyg_k-Le216ejOf2aq__vNfYeUnGPg4FWo="
+    },
+    {
+      "id": 3,
+      "name": "Memory Game",
+      "title": "Memory Game",
+      "price": 0,
+      "category": "Free",
+      "image": "https://img.freepik.com/premium-vector/memory-game-kids_78007-6005.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Daily Tasks",
+      "title": "Daily Tasks",
+      "price": 100,
+      "category": "Enjoy",
+      "image": "https://static.vecteezy.com/system/resources/previews/015/276/777/original/cartoon-kid-daily-routine-activities-set-vector.jpg"
+    },
+    {
+      "id": 5,
+      "name": "To-Do List",
+      "title": "To-Do List",
+      "price": 100,
+      "category": "Enjoy",
+      "image": "https://cdn.shopify.com/s/files/1/0156/3662/products/2015_checklist_ChartPkg_OL_En_03_2_1024x1024@2x.jpg?v=1555471448"
+    }
+  ]
+  
