@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card_mg';
 import ScoreBoard from './ScoreBoard';
-import Timer from './Timer';
+// import Timer from './Timer'; // Timer component is now commented out
+import axios from 'axios'; // Axios for API requests
 
-// Corrected paths for images
+// Import images
+import boat1 from './images/boat.jpeg';
 import boat from '../images_gameboard/boat.jpeg';
 import car from '../images_gameboard/car.jpeg';
 import elephant from '../images_gameboard/elephant.jpeg';
@@ -14,9 +16,9 @@ import mountain from '../images_gameboard/mountain.jpeg';
 import plane from '../images_gameboard/plane.jpeg';
 import tree from '../images_gameboard/tree.jpeg';
 import bike from '../images_gameboard/bike.jpeg';
-import back1 from '../images_gameboard/back1.jpg'; // Background image
+import back1 from '../images_gameboard/back1.jpg';
 
-import './GameBoard.css'; // Ensure the CSS file exists in the same folder
+import './GameBoard.css';
 
 const GameBoard = ({ ageGroup }) => {
   const [cards, setCards] = useState([]);
@@ -24,7 +26,7 @@ const GameBoard = ({ ageGroup }) => {
   const [matchedCards, setMatchedCards] = useState([]);
   const [attempts, setAttempts] = useState(0);
   const [points, setPoints] = useState(0);
-  const [timeTaken, setTimeTaken] = useState(0);
+  const [timeTaken, setTimeTaken] = useState(0); // This state is now unused
 
   const getImagesForAgeGroup = (ageGroup) => {
     if (ageGroup === '11-13') {
@@ -79,6 +81,19 @@ const GameBoard = ({ ageGroup }) => {
     }
   };
 
+  const saveStats = async () => {
+    try {
+      await axios.post('http://localhost:5000/api/stats', {
+        attempts,
+        points,
+        // timeTaken, // Removed from the POST request since timer logic is commented out
+      });
+      alert('Stats saved successfully');
+    } catch (error) {
+      console.error('Error saving stats:', error);
+    }
+  };
+
   return (
     <div
       className="game-board"
@@ -94,7 +109,10 @@ const GameBoard = ({ ageGroup }) => {
     >
       <h1 className="heading">Memory Match Game</h1>
       <ScoreBoard attempts={attempts} points={points} />
-      <Timer onTimeUpdate={setTimeTaken} />
+      {/* <Timer onTimeUpdate={setTimeTaken} /> */} {/* Timer component is commented out */}
+      <button onClick={saveStats} className="save-stats-button">
+        Save Stats
+      </button>
       <div className="cards-container">
         {cards.map((card, index) => (
           <Card

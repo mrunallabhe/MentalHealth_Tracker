@@ -1,0 +1,53 @@
+/* General Styling for Mood Chart Container */
+.mood-chart-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    margin: 20px auto; /* Center the chart in the page */
+    max-width: 90%; /* Responsive width */
+  }
+  
+  /* Title Styling */
+  .mood-chart-title {
+    font-size: 2rem;
+    color: #00796b; /* Deep teal color for title */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Chart Wrapper Styling */
+  .chart-wrapper {
+    width: 100%;
+    max-width: 800px; /* Limit maximum width for better centering */
+    height: 400px; /* Fixed height for the chart */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light gray for contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  }
+  
+  /* Back Button Styling */
+  .mood-chart-container .bg-blue-500 {
+    background-color: #00838f; /* Teal for consistency */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .mood-chart-container .bg-blue-500:hover {
+    background-color: #006064; /* Darker teal on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  

@@ -1,91 +1,62 @@
 import React, { useState } from 'react';
-import { FaComments } from 'react-icons/fa';  // Importing chat icon from react-icons
+import { FaGraduationCap, FaPlay } from 'react-icons/fa';
 
-function Cards({ item })
- {
-  console.log(item);
-  
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);  // State to control chatbot open/close
-
+function Cards({ item }) {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  console.log("In  card component")
   const toggleChatbot = () => {
-    setIsChatbotOpen(prev => !prev);  // Toggle chatbot
+    setIsChatbotOpen(!isChatbotOpen);
   };
 
   const handleStartClick = () => {
-    if (item.title === "Mood Tracker") {
-      window.location.href = "http://localhost:3000/"; // Daily Task URL
-    } else if (item.title === "Quiz") {
-      window.location.href = "http://localhost:5175/"; // Quiz URL
-    } else if (item.title === "Memory Game") {
-      window.location.href = "http://localhost:3001/"; // Memory Game URL
-    } else {
-      console.log("No URL defined for this section");
+    switch (item.title) {
+      case "Mood Tracker":
+        window.location.href = "http://localhost:3000/";
+        break;
+      case "Quiz":
+        window.location.href = "http://localhost:5175/";
+        break;
+      case "Memory Game":
+        window.location.href = "http://localhost:3001/";
+        break;
+      default:
+        console.log("No URL defined for this section");
     }
   };
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh' }}>
-      {/* Cards Section */}
-      <div className="card bg-base-100 w-96 shadow-xl mb-4"> {/* Adjusted margin-bottom */}
-        <figure className="w-full h-64 ">
-          <img 
-            src={item.image} 
-            alt={item.title} 
-            className="w-full h-full object-contain" 
-          />
-        </figure>
-
-        <div className="card-body">
-          <h2 className="card-title">
-            {item.title}
-            <div className="badge badge-secondary">Enroll</div>
-          </h2>
-          <p>When minds explore, who watches the core?</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline hover:bg-pink-500 hover:text-white px-2 py-1 duration-300">
-              Learn
-            </div>
-            <div
-              onClick={handleStartClick}
-              className="badge badge-outline hover:bg-pink-500 hover:text-white px-2 py-1 duration-300 cursor-pointer"
-            >
-              Start
-            </div>
-          </div>
+    <div className="bg-white dark:bg-gray-700 rounded-xl  shadow-lg transition-all duration-300 hover:shadow-2xl">
+      <div className="relative">
+        <img 
+          src={item.image} 
+          alt={item.title} 
+          className="w-full h-58 object-cover transition-transform duration-300 hover:scale-105" 
+        />
+        <div className="absolute top-0 right-0 bg-pink-500 text-white px-3 py-1 m-2 rounded-full text-sm font-semibold">
+          Enroll Now
         </div>
       </div>
 
-      {/* Chatbot Icon fixed at the bottom-left corner */}
-      <button
-        onClick={toggleChatbot}
-        className="fixed left-10 bottom-6 bg-pink-500 text-white p-3 rounded-full shadow-lg hover:bg-pink-700"
-        style={{ zIndex: 1000, padding: '12px' }}  // Adjusted bottom spacing
-      >
-        {/* Icon for the chatbot */}
-        <FaComments size={24} />
-      </button>
-
-      {/* Chatbot window, only visible when `isChatbotOpen` is true */}
-      {isChatbotOpen && (
-        <div
-          className="fixed left-6 w-80 h-[500px] bg-white rounded-lg shadow-lg"  // Increased height of chatbot box to 500px
-          style={{ zIndex: 1001, bottom: '50px', padding: 0 }}  // Adjusted bottom spacing
-        >
-          <button
-            onClick={toggleChatbot}
-            className="absolute top-2 right-2 text-black text-lg p-1 bg-gray-200 rounded-full hover:bg-gray-300"
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">{item.title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4">When minds explore, who watches the core?</p>
+        <div className="flex justify-between items-center">
+          <button 
+            className="flex items-center justify-center bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300"
+            onClick={() => console.log("Learn more about", item.title)}
           >
-            &times;
+            <FaGraduationCap className="mr-2" />
+            Learn
           </button>
-          <iframe
-            src="https://console.dialogflow.com/api-client/demo/embedded/6c1e0349-cd26-4dc1-92ba-ff3c1fe62677"
-            width="100%"
-            height="100%"
-            style={{ border: 'none', borderRadius: '10px' }}
-            title="Chatbot"
-          ></iframe>
+          <button 
+            className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300"
+            onClick={handleStartClick}
+          >
+            <FaPlay className="mr-2" />
+            Start
+          </button>
         </div>
-      )}
+      </div>
     </div>
   );
 }

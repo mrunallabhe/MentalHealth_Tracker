@@ -1,0 +1,11 @@
+Entry,Sentiment,Score
+feeling happy today,Positive,0.64
+feeling frustrated,Negative,-0.44
+feeling bad today,Negative,-0.46
+feeling bad today,Negative,-0.46
+feeling sad today,Negative,-0.38
+good mood,Positive,0.44
+feeling frustrated,Negative,-0.44
+feeling sad today,Negative,-0.38
+feeling happy today,Positive,0.64
+feeling frustrated today,Negative,-0.44

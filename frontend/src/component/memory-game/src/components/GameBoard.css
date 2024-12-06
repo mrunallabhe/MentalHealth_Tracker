@@ -1,5 +1,6 @@
 /* Game Board Styles */
 .game-board {
+  background-image: url('../images_gameboard/back1.jpg'); /* Ensure correct background path */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -7,23 +8,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 20px;
-}
-
-/* Heading Styles */
-.heading {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #ff4081; /* Dark pink */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-  text-align: center;
+  padding-top: 50px; /* Increased padding for better visibility of scoreboard */
+  position: relative;
 }
 
 /* Cards Container */
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
   gap: 15px;
   max-width: 90%; /* Limit the width */
   margin-top: 20px;
@@ -36,20 +28,20 @@
   height: 120px;
   perspective: 1000px;
   cursor: pointer;
-  position: relative;
 }
 
 .card-inner {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.6s ease-in-out;
   transform-style: preserve-3d;
-  transform: rotateY(0deg);
+  transform: rotateY(0); /* Default position (back of the card visible) */
 }
 
-.card-inner.is-flipped {
-  transform: rotateY(180deg);
+/* Flipping logic */
+.card.flipped .card-inner {
+  transform: rotateY(180deg); /* Flip to show the front when clicked */
 }
 
 /* Front and Back of Card */
@@ -68,11 +60,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: rotateY(180deg); /* Hidden initially (back side) */
 }
 
 .card-back {
   background-color: #ff4081; /* Dark pink */
-  transform: rotateY(180deg);
+  transform: rotateY(0deg); /* Visible back side initially */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,50 +78,47 @@
   object-fit: contain;
 }
 
-/* Scoreboard Styles */
-.scoreboard {
+/* Matched cards styling */
+.card.matched .card-inner {
+  transform: rotateY(0deg); /* Keep the card flipped showing the front */
+  pointer-events: none; /* Prevents further interaction */
+  opacity: 1; /* Ensure the card is fully visible */
+  background-color: transparent; /* Remove background color change */
+  box-shadow: 0 8px 15px rgba(0, 255, 0, 0.3); /* Add shadow effect for emphasis */
+}
+
+/* Matched card front */
+.card.matched .card-front {
+  background-color: transparent; /* Remove any background color */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 500px;
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-  padding: 10px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.scoreboard span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
+/* Matched card back */
+.card.matched .card-back {
+  background-color: transparent; /* Remove background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Timer Styles */
-.timer {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  margin-top: 10px;
+/* Matched card images */
+.card.matched .card-front img {
+  opacity: 1; /* Ensure the image is fully visible */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .heading {
-    font-size: 2rem;
-  }
+/* Optional: Adding a glowing effect */
+.card.matched .card-inner {
+  animation: glow 1s infinite alternate; /* Glow animation */
+}
 
-  .card {
-    width: 80px;
-    height: 100px;
+/* Glow effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
   }
-
-  .cards-container {
-    gap: 10px;
-  }
-
-  .scoreboard {
-    width: 100%;
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
   }
 }

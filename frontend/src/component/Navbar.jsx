@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 
 function Navbar({ isLoggedIn, handleLogout }) {
   return (
-    <nav className="bg-gray-100 dark:bg-slate-900 dark:text-white p-4 shadow-md fixed top-0 w-full z-50 flex items-center justify-between">
+    <nav className="bg-gray-100 dark:bg-slate-600 dark:text-white p-2 shadow-md fixed top-0 w-full z-30 flex items-center justify-between">
       <div className="text-2xl font-bold">GrowMind</div>
-      <div className="space-x-6 hidden md:flex">
+      <div className="space-x-4 hidden md:flex">
         <Link to="/" className="text-xl hover:shadow-lg transition-all duration-300 dark:hover:text-blue-400">Home</Link>
         <Link to="/contact" className="text-xl hover:shadow-lg transition-all duration-300 dark:hover:text-blue-400">Contact</Link>
         <Link to="/about" className="text-xl hover:shadow-lg transition-all duration-300 dark:hover:text-blue-400">About</Link>
+        
 
         {/* Conditionally render Login/Signup or Profile/Logout based on isLoggedIn */}
         {!isLoggedIn ? (

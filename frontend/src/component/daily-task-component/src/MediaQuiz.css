@@ -11,9 +11,9 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-  margin: 40px auto;
+  margin: 30px auto;
   padding: 20px;
-  max-width: 1600px;
+  max-width: 1800px;
 }
 
 /* Media Section */
@@ -55,7 +55,7 @@ body {
   border: 5px solid #ccc;
   border-radius: 5px;
   background-color: #ffffff; /* White background for options */
-  width: calc(100% - 20px); /* Adjust width */
+  width: calc(80% - 10px); /* Adjust width */
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease; /* Smooth transition for hover */

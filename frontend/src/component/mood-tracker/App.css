@@ -1,0 +1,162 @@
+/* General Styling for the App */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e0f7fa; /* Soft cyan background */
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #00796b; /* A deep teal for the title */
+  margin-top: 20px;
+}
+
+/* App Container Styling */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh; /* Ensure container takes full viewport height */
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs_KhvE8oRMIF0tNVUnDWV9MZMO4HWuWPFOQ&s') no-repeat center center;
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center;
+  padding-top: 20px;
+  background-attachment: fixed; /* Keeps background image fixed during scroll */
+}
+
+/* App Header Styling */
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-title {
+  font-size: 3rem; /* Larger font size for the title */
+  font-weight: 600;
+  color: #004d40; /* Darker shade of teal for contrast */
+}
+
+/* Link Styling */
+.link-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px; /* Added more margin for spacing */
+}
+
+.mood-chart-button {
+  background-color: #00838f;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 30px; /* Rounded button */
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s; /* Added shadow transition */
+}
+
+.mood-chart-button:hover {
+  background-color: #006064; /* Darker teal on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+/* Calendar Container */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px; /* Added margin to space out from other elements */
+}
+
+.calendar-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #004d40;
+  font-weight: bold;
+}
+
+.calendar-input {
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  width: 250px; /* Increased input width */
+  transition: box-shadow 0.3s;
+}
+
+.calendar-input:focus {
+  box-shadow: 0 0 8px rgba(0, 131, 143, 0.5); /* Focus effect */
+}
+
+/* Emoji Grid Styling */
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px; /* Larger gap for emojis */
+  margin-bottom: 20px;
+}
+
+.emoji-button {
+  font-size: 2.5rem;
+  padding: 15px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s; /* Added smooth hover effects */
+}
+
+.emoji-button:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.emoji-button.selected {
+  background-color: #4dd0e1;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mood-display {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #004d40;
+  font-weight: bold;
+}
+
+/* Mood Chart Container Styling */
+.mood-chart-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.mood-chart-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00796b;
+  font-weight: 600;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 850px; /* Adjusted max width for better centering */
+  padding: 30px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Slightly larger shadow */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: auto !important;
+}

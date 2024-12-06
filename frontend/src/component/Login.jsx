@@ -1,6 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -24,6 +24,7 @@ const Login = ({ onLogin }) => {
         email,
         password,
       });
+      
 
       const { token } = response.data; // Extract token from response
       if (token) {

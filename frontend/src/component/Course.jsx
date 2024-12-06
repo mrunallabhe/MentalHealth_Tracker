@@ -1,69 +1,41 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
-import list from "../list.json";
+import React from 'react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import list from '../list.json';
 import Cards from './Cards';
 
 function Course() {
-  const filterData = list;
-
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: false,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
-    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
-      {/* Header Section */}
-      <div>
-        <h1 className="text-2xl font-semibold px-7 py-9">Let's Grow Together</h1>
-        <p>
-          Let's Begin your Journey with us, complete daily tasks, solve quizzes, and be yourself. 
-          Start memorizing everything, check where you stand, what you want, what can be done, play games, and track your progress.
+    <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Let's Grow Together</h2>
+        <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
+          Begin your journey with us. Complete daily tasks, solve quizzes, and discover yourself. 
+          Start memorizing, track your progress, and play games to enhance your skills.
         </p>
-      </div>
-
-      {/* Cards Section */}
-      <div>
-        <Slider {...settings}>
-          {filterData.map((item) => (
-            <Cards item={item} key={item.id} />
+        <Swiper
+          modules={[Pagination, Navigation]}
+          spaceBetween={40}
+          slidesPerView={3}
+          pagination={{ clickable: true }}
+          navigation
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="course-swiper"
+        >
+          {list.map((item) => (
+            <SwiperSlide key={item.id}>
+              <Cards item={item} />
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
-
-      {/* Removing Blank Space after Cards */}
-      <div className="pb-2"></div> {/* Reduce or remove padding */}
-    </div>
+    </section>
   );
 }
 

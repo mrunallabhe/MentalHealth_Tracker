@@ -1,6 +1,6 @@
+import axios from 'axios'; // Ensure axios is installed
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Ensure axios is installed
 
 function Signup() {
   const [name, setName] = useState('');
@@ -14,11 +14,13 @@ function Signup() {
 
     try {
       // Send the signup data to the backend
-      const response = await axios.post('http://localhost:5000/api/signup', {
+      
+      const response = await axios.post('http://localhost:5001/api/signup', {
         name,
         email,
         password,
       });
+      
 
       // After successful signup, redirect to login page
       console.log(response.data);

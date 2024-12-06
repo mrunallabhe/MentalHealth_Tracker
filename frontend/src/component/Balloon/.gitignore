@@ -1,0 +1,22 @@
+# Node.js dependencies
+/node_modules/
+
+# Build files
+/dist/
+/build/
+
+# Logs
+*.log
+
+# Environment variables file
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VS Code workspace settings
+.vscode/
+
+# JetBrains workspace settings
+.idea/

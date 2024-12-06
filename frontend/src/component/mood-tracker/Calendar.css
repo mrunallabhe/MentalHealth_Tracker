@@ -1,0 +1,127 @@
+/* Overall container for the calendar component */
+.calendar-container {
+  position: relative;
+  width: 95%;
+  max-width: 500px; /* Ensures it doesn't stretch too much */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Emoji selection container */
+.emoji-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Space between emoji options */
+  margin: 20px 0;
+  flex-wrap: wrap; /* Ensures emojis wrap on smaller screens */
+}
+
+/* Individual emoji styling */
+.emoji-option {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  transition: transform 0.3s, background-color 0.3s ease-in-out, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.emoji-option:hover {
+  transform: scale(1.2); /* Slight zoom effect */
+  background-color: #f0f0f0; /* Subtle highlight */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.emoji-option.selected {
+  background-color: #ffefc2; /* Highlight for selected emoji */
+  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+}
+
+/* Mood save button container */
+.mood-save-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mood-save-container button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.mood-save-container button:hover {
+  background-color: #45a049;
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+.mood-save-container button:active {
+  background-color: #3e8e41; /* Darker green for click */
+}
+
+/* Mood tiles for each emoji */
+.tile-😊 {
+  background-color: #ffe066; /* Vibrant yellow for happiness */
+}
+
+.tile-😂 {
+  background-color: #ffd6a5; /* Light orange for joy */
+}
+
+.tile-😐 {
+  background-color: #d6d6d6; /* Neutral gray for calm */
+}
+
+.tile-😔 {
+  background-color: #91b4b4; /* Muted teal for sadness */
+}
+
+.tile-😢 {
+  background-color: #ffabab; /* Soft red for crying */
+}
+
+.tile-😡 {
+  background-color: #ff6b6b; /* Bright red for anger */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 15px;
+  }
+
+  .emoji-option {
+    font-size: 1.8rem;
+    padding: 10px;
+  }
+
+  .mood-save-container button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .emoji-options {
+    gap: 10px; /* Smaller gap on small screens */
+  }
+
+  .emoji-option {
+    font-size: 1.6rem;
+    padding: 8px;
+  }
+
+  .mood-save-container button {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+}

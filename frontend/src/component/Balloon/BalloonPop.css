@@ -1,0 +1,105 @@
+/* BalloonPop.css */
+
+/* General container styling */
+/* Apply Flexbox only to the .balloon-container to center it vertically */
+/* Apply Flexbox only to the .balloon-container to center it vertically */
+.balloon-container {
+    text-align: center;
+    padding: 40px; /* Increase padding to make it bigger */
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f7;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px; /* Increase max-width to make it bigger */
+    margin: 150px auto; /* Increase margin-top to bring it further down */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+    color: #ff6f61;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+    color: #555;
+}
+
+input {
+    padding: 12px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 70%;
+    max-width: 400px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Styling for DatePicker */
+.date-picker {
+    margin-top: 20px;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+/* Balloon display container */
+.balloon-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Balloon shape and animations */
+.balloon {
+    width: 120px;
+    height: 160px;
+    background-color: #ff6f61;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 50% 50% 60% 60%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    animation: float 1.5s ease-in-out infinite alternate; /* Balloon floating effect */
+}
+
+/* Popping animation */
+.balloon.popping {
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.5s ease;
+    box-shadow: none;
+}
+
+/* Balloon string */
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; /* Position below the balloon */
+    left: 50%;
+    transform: translateX(-50%);
+}

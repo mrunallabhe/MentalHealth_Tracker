@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Quiz = ({ selectedAgeGroup }) => {
   const [questions, setQuestions] = useState([]);
@@ -18,7 +18,7 @@ const Quiz = ({ selectedAgeGroup }) => {
     const fetchQuestions = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/questions/${selectedAgeGroup}`);
+        const response = await fetch(`http://localhost:5049/questions/${selectedAgeGroup}`);
         const data = await response.json();
         setQuestions(data);
       } catch (error) {

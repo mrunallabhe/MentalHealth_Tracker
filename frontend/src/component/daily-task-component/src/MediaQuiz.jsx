@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './MediaQuiz.css';
 import backgroundImage from './back7.jpg';
 
